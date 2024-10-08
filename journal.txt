@@ -1,3 +1,4 @@
 08/10/2024
  Started Development on project
+ Created script for collecting data on the current prices of cryptos and get 30 days worth of data for price over time
  
