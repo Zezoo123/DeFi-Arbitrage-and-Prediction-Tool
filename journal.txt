@@ -2,3 +2,7 @@
  Started Development on project
  Created script for collecting data on the current prices of cryptos and get 30 days worth of data for price over time
  Started production of flask website to display data on the current prices of cryptos and get 30 days worth of data
+ 
+ !! create an update current_prices function or modify the save_current_prices function to update the current
+    df rather than create a new one and save a brand new one each time.
+ !! look into creating graphs for the 30 days of data.
