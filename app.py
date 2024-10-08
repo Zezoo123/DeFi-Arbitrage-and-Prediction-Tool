@@ -13,12 +13,12 @@ def index():
 
 @app.route('/<crypto_id>')
 def crypto_page(crypto_id):
-    # save_current_prices(crypto_ids = [crypto_id])
-    # save_prices_over_time(crypto_ids = [crypto_id])
+    save_current_prices(crypto_ids = [crypto_id])
+    save_prices_over_time(crypto_ids = [crypto_id])
     current_prices = pd.read_csv('data/current_prices.csv')
     historical_data = pd.read_csv(f'data/prices_over_time/{crypto_id}_prices.csv')
     
-    return render_template('crypto_page.html', current_prices=current_prices, historical_data=historical_data, crypto_id=crypto_id)
+    return render_template('crypto_page.html', current_price=current_prices.iloc[0]['price'], historical_data=historical_data, crypto_id=crypto_id)
 
 if __name__ == '__main__':
     app.run(debug=True, port=5001)
