@@ -15,13 +15,20 @@ def fetch_prices(url, params, headers):
     response = requests.get(url, params = params)
 
     if response.status_code == 200:
-            data = response.json()
+        data = response.json()
     else:
-            print('Failed to retrieve data from the API')
-            print(f'Error Code: {response.status_code}')
+        print('Failed to retrieve data from the API')
+        print(f'Error Code: {response.status_code}')
+        return None
 
     return data
 
 prices = fetch_prices(url_price, params, headers)
-df = pd.DataFrame(prices)
-df.to_csv("prices.csv", index=False)
+
+if prices:
+    df = pd.DataFrame(prices).T.reset_index() # Transpose to get currencies as rows
+    df.columns = ['crypto', 'price']
+    df.to_csv("prices.csv", index=False)
+    print("Prices saved succesfully to prices.csv")
+else:
+    print("Failed to save prices")
