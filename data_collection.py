@@ -24,11 +24,12 @@ def fetch_prices(url, params, headers):
     return data
 
 prices = fetch_prices(url_price, params, headers)
+current_prices_fh = 'current_prices.csv'
 
 if prices:
     df = pd.DataFrame(prices).T.reset_index() # Transpose to get currencies as rows
     df.columns = ['crypto', 'price']
-    df.to_csv("prices.csv", index=False)
-    print("Prices saved succesfully to prices.csv")
+    df.to_csv(current_prices_fh, index=False)
+    print("Prices saved succesfully to " + current_prices_fh)
 else:
     print("Failed to save prices")
