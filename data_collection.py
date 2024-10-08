@@ -4,14 +4,19 @@ import pandas as pd
 url_ping = 'https://api.coingecko.com/api/v3/ping'
 url_price = 'https://api.coingecko.com/api/v3/simple/price'
 
-params = {  
-    'ids': ','.join(['bitcoin', 'ethereum', 'litecoin', 'ripple', 'cardano']),
-    'vs_currencies': 'USD'
-}
+crypto_ids = ['bitcoin', 'ethereum', 'litecoin', 'ripple', 'cardano']
+
 # API key
 headers = {'x-cg-demo-api-key': 'CG-YeENUQYCX9m5U2XNeDDbxPZh'}
 
-def fetch_prices(url, params, headers):
+"""
+Fetch the current prices of the crptocurrencies in the array crypto_ids
+"""
+def fetch_current_prices(url, headers, crypto_ids):
+    params = {
+        'ids': ','.join(crypto_ids),
+        'vs_currencies': 'USD'
+    }
     response = requests.get(url, params = params)
 
     if response.status_code == 200:
@@ -23,7 +28,7 @@ def fetch_prices(url, params, headers):
 
     return data
 
-prices = fetch_prices(url_price, params, headers)
+prices = fetch_current_prices(url_price, headers, crypto_ids)
 current_prices_fh = 'current_prices.csv'
 
 if prices:
