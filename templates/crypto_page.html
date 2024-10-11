@@ -13,6 +13,11 @@
         <h2 class="text-center">$ {{ current_price }}</h2>
 
         <h2 class="mt-5">Historical Prices Over the Last 30 Days</h2>
+        <h3>Graph Representation</h3>
+        <div>
+            <img src="{{ graph_url }}" alt="{{ crypto_id.capitalize() }} Price Graph">
+        </div>
+        <h3>Table Representation</h3>
         <table class="table table-striped table-bordered">
             <thead class="thead-dark">
                 <tr>
