@@ -16,9 +16,12 @@ def crypto_page(crypto_id):
     current_prices = pd.read_csv('data/current_prices.csv')
     historical_data = pd.read_csv(f'data/prices_over_time/{crypto_id}_prices.csv')
 
-    historical_data['timestamp'] = pd.to_datetime(historical_data['timestamp']) # convert to datetime
+    historical_data_copy = historical_data.copy()
+
+    historical_data_copy['timestamp'] = pd.to_datetime(historical_data_copy['timestamp']) # convert to datetime
+    historical_data_copy['timestamp'] = historical_data_copy['timestamp'].dt.strftime('%m-%d %H:%M')
     
-    graph_url = plot_prices_over_time(historical_data, crypto_id)
+    graph_url = plot_prices_over_time(historical_data_copy, crypto_id)
 
     current_prices = current_prices[current_prices['crypto'] == crypto_id] 
 
