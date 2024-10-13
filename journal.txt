@@ -6,3 +6,6 @@
  !! create an update current_prices function or modify the save_current_prices function to update the current
     df rather than create a new one and save a brand new one each time.
  !! look into creating graphs for the 30 days of data.
+
+12/10/2024
+ Add a new api data.
