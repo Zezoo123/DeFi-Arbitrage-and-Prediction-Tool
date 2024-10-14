@@ -1,5 +1,6 @@
 from flask import Flask, render_template, redirect, url_for, request
-from data_collection import save_current_prices, save_prices_over_time
+from data_collection import coingecko_data_collection, binance_data_collection
+
 from plot import plot_prices_over_time
 import pandas as pd
 
@@ -37,8 +38,9 @@ def reload_prices_func():
     return redirect(url_for('index'))
 
 def refresh_prices():
-    save_current_prices()
-    save_prices_over_time()
+    coingecko_data_collection.save_current_prices()
+    coingecko_data_collection.save_prices_over_time()
 
 if __name__ == '__main__':
+    refresh_prices() # Fetch prices when website starts
     app.run(debug=True, port=5001)

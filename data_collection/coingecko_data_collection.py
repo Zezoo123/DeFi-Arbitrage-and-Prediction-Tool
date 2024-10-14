@@ -1,11 +1,12 @@
 import requests
 import time
 import pandas as pd
+import os
 
-url_api = 'https://api.coingecko.com/api/v3'
-url_ping = url_api + '/ping'
-url_price = url_api + '/simple/price'
-url_coins = url_api + '/coins'
+coingecko_url_api = 'https://api.coingecko.com/api/v3'
+coingecko_url_ping = coingecko_url_api + '/ping'
+coingecko_url_price = coingecko_url_api + '/simple/price'
+coingecko_url_coins = coingecko_url_api + '/coins'
 
 DAYS = 30
 crypto_ids = ['bitcoin', 'ethereum', 'litecoin', 'ripple', 'cardano']
@@ -47,7 +48,7 @@ def fetch_current_prices(url, crypto_ids, headers=headers):
 """
 Fetch the prices of a specific cryptocurrency over a specified number of days
 """
-def fetch_prices_over_time(crypto_id, url=url_coins, days=DAYS, headers=headers):
+def fetch_prices_over_time(crypto_id, url=coingecko_url_coins, days=DAYS, headers=headers):
     url = url + f'/{crypto_id}/market_chart'
     params = {
         'vs_currency': 'usd',
@@ -59,7 +60,7 @@ def fetch_prices_over_time(crypto_id, url=url_coins, days=DAYS, headers=headers)
     elif response.status_code == 429:
         print('Rate limit exceeded. Waiting for 10 seconds...')
         time.sleep(10)
-        return fetch_prices_over_time(crypto_id)
+        return fetch_prices_over_time(crypto_id, url)
     else:
         print('Failed to retrieve data from the API')
         print(f'Error Code: {response.status_code}')
@@ -70,8 +71,8 @@ def fetch_prices_over_time(crypto_id, url=url_coins, days=DAYS, headers=headers)
 """
 Save current prices in current_prices.csv file
 """
-def save_current_prices(url=url_price, crypto_ids=crypto_ids):
-    current_prices = fetch_current_prices(url_price, crypto_ids)
+def save_current_prices(url=coingecko_url_price, crypto_ids=crypto_ids):
+    current_prices = fetch_current_prices(url, crypto_ids)
     current_prices_fh = 'data/current_prices.csv'
     if current_prices:
         df = pd.DataFrame(current_prices).T.reset_index() # Transpose to get currencies as rows
@@ -92,3 +93,4 @@ def save_prices_over_time(crypto_ids=crypto_ids):
             df_prices_over_time = pd.DataFrame(prices_over_time['prices'], columns=['timestamp', 'price'])
             df_prices_over_time['timestamp'] = pd.to_datetime(df_prices_over_time['timestamp'], unit='ms') # Convert timestamp to datetime
             df_prices_over_time.to_csv(f'data/prices_over_time/{crypto_id}_prices.csv', index=False)
+
