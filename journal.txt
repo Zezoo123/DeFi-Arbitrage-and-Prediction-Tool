@@ -8,4 +8,7 @@
  !! look into creating graphs for the 30 days of data.
 
 12/10/2024
- Add a new api data.
+ !! Add a new api data.
+
+14/10/2024
+ Found my old Binance account and did all the verification to get api.
