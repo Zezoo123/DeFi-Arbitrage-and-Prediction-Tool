@@ -9,7 +9,7 @@ coingecko_url_price = coingecko_url_api + '/simple/price'
 coingecko_url_coins = coingecko_url_api + '/coins'
 
 DAYS = 30
-crypto_ids = ['bitcoin', 'ethereum', 'litecoin', 'ripple', 'cardano']
+crypto_ids = ['bitcoin', 'ethereum', 'bnb','litecoin', 'ripple', 'cardano']
 
 # API key
 headers = {'x-cg-demo-api-key': 'CG-YeENUQYCX9m5U2XNeDDbxPZh'}
@@ -73,7 +73,7 @@ Save current prices in current_prices.csv file
 """
 def save_current_prices(url=coingecko_url_price, crypto_ids=crypto_ids):
     current_prices = fetch_current_prices(url, crypto_ids)
-    current_prices_fh = 'data/current_prices.csv'
+    current_prices_fh = 'data/coingecko_current_prices.csv'
     if current_prices:
         df = pd.DataFrame(current_prices).T.reset_index() # Transpose to get currencies as rows
         df.columns = ['crypto', 'price']
