@@ -66,4 +66,4 @@ def save_prices_over_time():
                 # Write the price data
                 writer.writerows(klines)
             
-save_prices_over_time()
+save_current_prices()
