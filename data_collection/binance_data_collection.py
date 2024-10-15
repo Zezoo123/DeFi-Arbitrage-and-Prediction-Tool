@@ -42,7 +42,7 @@ def save_current_prices():
     for index, price in enumerate(prices):
         prices[index] = [price[0], price[1]]
 
-    filename = "binance.csv"    
+    filename = "../data/binance/current_prices.csv"    
     with open(filename, mode='w', newline='') as file:
         writer = csv.writer(file)
         # Write the header if the file is empty

@@ -9,12 +9,12 @@ app = Flask(__name__)
 # Route for the main page
 @app.route('/')
 def index():
-    current_prices = pd.read_csv('data/coingecko_current_prices.csv')
+    current_prices = pd.read_csv('data/coingecko/current_prices.csv')
     return render_template('index.html', prices=current_prices)
 
 @app.route('/historical/<crypto_id>')
 def crypto_page(crypto_id):
-    current_prices = pd.read_csv('data/coingecko_current_prices.csv')
+    current_prices = pd.read_csv('data/coingecko/current_prices.csv')
     historical_data = pd.read_csv(f'data/prices_over_time/{crypto_id}_prices.csv')
 
     historical_data_copy = historical_data.copy()
@@ -32,7 +32,7 @@ def crypto_page(crypto_id):
 """
 Route for the reload prices button.
 """
-@app.route('/reload_prices_func', methods=['POST'])
+@app.route('/api/reload_prices_func', methods=['POST'])
 def reload_prices_func():
     refresh_prices()
     return redirect(url_for('index'))

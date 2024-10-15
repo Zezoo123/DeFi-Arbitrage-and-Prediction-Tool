@@ -73,7 +73,7 @@ Save current prices in current_prices.csv file
 """
 def save_current_prices(url=coingecko_url_price, crypto_ids=crypto_ids):
     current_prices = fetch_current_prices(url, crypto_ids)
-    current_prices_fh = 'data/coingecko_current_prices.csv'
+    current_prices_fh = 'data/coingecko/current_prices.csv'
     if current_prices:
         df = pd.DataFrame(current_prices).T.reset_index() # Transpose to get currencies as rows
         df.columns = ['crypto', 'price']
@@ -92,5 +92,5 @@ def save_prices_over_time(crypto_ids=crypto_ids):
         if prices_over_time:
             df_prices_over_time = pd.DataFrame(prices_over_time['prices'], columns=['timestamp', 'price'])
             df_prices_over_time['timestamp'] = pd.to_datetime(df_prices_over_time['timestamp'], unit='ms') # Convert timestamp to datetime
-            df_prices_over_time.to_csv(f'data/prices_over_time/{crypto_id}_prices.csv', index=False)
+            df_prices_over_time.to_csv(f'data/coingecko/{crypto_id}_prices.csv', index=False)
 
