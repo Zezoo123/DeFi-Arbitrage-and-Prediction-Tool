@@ -14,3 +14,7 @@
  Found my old Binance account and did all the verification to get api.
  Connected to binance api in python using the binance library.
  Collected current prices of cryptos from binance
+
+15/10/2024
+ Collected klines from binance api for multiple cryptocurrencies
+ Started a database-implementation branch to explore efficent data storage
