@@ -22,3 +22,9 @@
 17/10/2024
  Fixed format of save files for binance data
  Got a working kline plot implementation
+ Displayed the kline on the website for each interval and each cryptocurrency
+
+ !! Improve template for index for kline pages
+ !! Start researching about Machine Learning techniques for price prediction
+ !! Look at what other data values / heuristics such as web scraping from twitter and sentiment analysis.
+ 
