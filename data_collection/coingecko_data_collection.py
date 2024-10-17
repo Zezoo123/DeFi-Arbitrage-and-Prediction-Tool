@@ -69,7 +69,7 @@ def fetch_prices_over_time(crypto_id, url=coingecko_url_coins, days=DAYS, header
     return data
 
 """
-Save current prices in current_prices.csv file
+Save current prices in data/coingecko/current_prices.csv file
 """
 def save_current_prices(url=coingecko_url_price, crypto_ids=crypto_ids):
     current_prices = fetch_current_prices(url, crypto_ids)
