@@ -18,3 +18,7 @@
 15/10/2024
  Collected klines from binance api for multiple cryptocurrencies
  Started a database-implementation branch to explore efficent data storage
+
+17/10/2024
+ Fixed format of save files for binance data
+ Got a working kline plot implementation
