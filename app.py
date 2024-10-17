@@ -8,27 +8,19 @@ from plot import plot_prices_over_time, plot_klines
 
 app = Flask(__name__)
 
-# Cache to hold prices in memory for efficiency
-price_cache = {}
-
-def load_current_prices():
-    global price_cache
-    price_cache['current_prices'] = pd.read_csv('data/coingecko/current_prices.csv')
-    price_cache['last_refresh'] = time.time()
-
 # Route for the main page
 @app.route('/')
 def index():
     if time.time() - price_cache.get('last_refresh', 0) > 300:
         load_current_prices()
     current_prices = pd.read_csv('data/coingecko/current_prices.csv')
-    return render_template('index.html', prices=current_prices, klines_image=klines_image)
+    return render_template('index.html', prices=current_prices)
 
 @app.route('/historical/<crypto_id>')
 def crypto_page(crypto_id):
     current_prices = pd.read_csv('data/coingecko/current_prices.csv')
     historical_data = pd.read_csv(f'data/coingecko/{crypto_id}_prices.csv')
-    
+
     historical_data_copy = historical_data.copy()
 
     historical_data_copy['timestamp'] = pd.to_datetime(historical_data_copy['timestamp']) # convert to datetime
@@ -52,6 +44,15 @@ def reload_prices_func():
 def refresh_prices():
     coingecko_data_collection.save_current_prices()
     load_current_prices()
+
+"""
+Cache to hold prices in memory for efficiency
+"""
+price_cache = {}
+def load_current_prices():
+    global price_cache
+    price_cache['current_prices'] = pd.read_csv('data/coingecko/current_prices.csv')
+    price_cache['last_refresh'] = time.time()
 
 if __name__ == '__main__':
     #refresh_prices() # Fetch prices when website starts

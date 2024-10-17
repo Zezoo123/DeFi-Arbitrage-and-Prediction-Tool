@@ -48,12 +48,4 @@ def plot_klines(kline_data, interval, crypto_id):
                       xaxis_title='Date',
                       yaxis_title='Price (USD)')
 
-    #return pio.to_html(fig, full_html=False)
-    fig.show()
-# Example usage
-file_path = 'data/binance/BTC/1d.csv'
-crypto_id = 'BTC'
-interval = '1d'
-historical_data = pd.read_csv(file_path)
-
-plot_klines(historical_data, interval, crypto_id)
+    return pio.to_html(fig, full_html=False)

@@ -72,5 +72,3 @@ def save_prices_over_time():
             klines = fetch_historical_data(symbol, interval)
             filename = BASE_DIR + f"/data/binance/{symbol[:3]}/{interval}.csv"
             klines.to_csv(filename, index=False)
-            
-save_prices_over_time()
