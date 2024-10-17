@@ -2,6 +2,7 @@ import os
 import csv
 from datetime import datetime, timedelta
 from binance import Client
+import pandas as pd
 
 #init
 api_key = os.environ.get('binance_api')
@@ -35,8 +36,19 @@ def fetch_historical_data(symbol, interval, days=30):
         start_str=start_time_api,
         end_str=end_time_api
     )
+    df = pd.DataFrame(klines, columns=[
+    'Open Time', 'Open', 'High', 'Low', 'Close', 'Volume', 'Close Time',
+    'Quote Asset Volume', 'Number of Trades', 'Taker Buy Base Asset Volume',
+    'Taker Buy Quote Asset Volume', 'Ignore'
+    ])
 
-    return klines
+    df['Open Time'] = pd.to_datetime(df['Open Time'], unit='ms')
+    df['Close Time'] = pd.to_datetime(df['Close Time'], unit='ms')
+
+    df[['Open', 'High', 'Low', 'Close', 'Volume', 'Quote Asset Volume']] = df[['Open', 'High', 'Low', 'Close', 'Volume', 'Quote Asset Volume']].apply(pd.to_numeric)
+
+
+    return df
 
 def save_current_prices():
     prices = fetch_current_prices(symbols=['BTCUSDT', 'ETHUSDT', 'BNBUSDT', 'ADAUSDT', 'LTCUSDT', 'XRPUSDT'])
@@ -53,17 +65,12 @@ def save_current_prices():
         writer.writerows(prices)
 
 def save_prices_over_time():
-    #'BTCUSDT', 'ETHUSDT', 'BNBUSDT', 'ADAUSDT', 'LTCUSDT', 
-    for symbol in ['XRPUSDT']:
-        for interval in ['1m', '3m', '5m', '15m', '30m', '1h', '2h', '4h', '6h', '8h', '12h', '1d']:
+    #'BTCUSDT', 'ETHUSDT', 'BNBUSDT', 'ADAUSDT', 'LTCUSDT', 'XRPUSDT
+    for symbol in ['BTCUSDT', 'ETHUSDT', 'BNBUSDT', 'ADAUSDT', 'LTCUSDT', 'XRPUSDT']:
+        # '1m', '3m', '5m', '15m', '30m', '1h', '2h', '4h', '6h', '8h', '12h', '1d'
+        for interval in ['1m', '3m', '5m', '15m', '30m']:
             klines = fetch_historical_data(symbol, interval)
             filename = BASE_DIR + f"/data/binance/{symbol[:3]}/{interval}.csv"
-            with open(filename, mode='w', newline='') as file:
-                writer = csv.writer(file)
-                # Write the header if the file is empty
-                if file.tell() == 0:
-                    writer.writerow(['timestamp', 'open', 'high', 'low', 'close', 'volume'])
-                # Write the price data
-                writer.writerows(klines)
+            klines.to_csv(filename, index=False)
             
-save_current_prices()
+save_prices_over_time()

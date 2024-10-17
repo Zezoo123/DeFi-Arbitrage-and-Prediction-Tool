@@ -3,7 +3,7 @@ import pandas as pd
 import time
 
 from data_collection import coingecko_data_collection, binance_data_collection
-from plot import plot_prices_over_time
+from plot import plot_prices_over_time, plot_klines
 
 
 app = Flask(__name__)
@@ -22,13 +22,13 @@ def index():
     if time.time() - price_cache.get('last_refresh', 0) > 300:
         load_current_prices()
     current_prices = pd.read_csv('data/coingecko/current_prices.csv')
-    return render_template('index.html', prices=current_prices)
+    return render_template('index.html', prices=current_prices, klines_image=klines_image)
 
 @app.route('/historical/<crypto_id>')
 def crypto_page(crypto_id):
     current_prices = pd.read_csv('data/coingecko/current_prices.csv')
     historical_data = pd.read_csv(f'data/coingecko/{crypto_id}_prices.csv')
-
+    
     historical_data_copy = historical_data.copy()
 
     historical_data_copy['timestamp'] = pd.to_datetime(historical_data_copy['timestamp']) # convert to datetime
