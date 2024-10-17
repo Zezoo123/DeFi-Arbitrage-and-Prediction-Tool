@@ -84,7 +84,7 @@ def save_current_prices(url=coingecko_url_price, crypto_ids=crypto_ids):
 
 """
 Save prices over time for the different crypto currencies identified in crypto_ids.
-Files saved in folder prices_over_time/crypto_id_prices.csv
+Files saved in folder data/coingecko/{ crypto_id }_prices.csv
 """
 def save_prices_over_time(crypto_ids=crypto_ids):
     for crypto_id in crypto_ids:
