@@ -9,7 +9,7 @@ coingecko_url_price = coingecko_url_api + '/simple/price'
 coingecko_url_coins = coingecko_url_api + '/coins'
 
 DAYS = 30
-crypto_ids = ['bitcoin', 'ethereum', 'litecoin', 'ripple', 'cardano']
+crypto_ids = ['bitcoin', 'ethereum', 'bnb','litecoin', 'ripple', 'cardano']
 
 # API key
 headers = {'x-cg-demo-api-key': 'CG-YeENUQYCX9m5U2XNeDDbxPZh'}
@@ -69,11 +69,11 @@ def fetch_prices_over_time(crypto_id, url=coingecko_url_coins, days=DAYS, header
     return data
 
 """
-Save current prices in current_prices.csv file
+Save current prices in data/coingecko/current_prices.csv file
 """
 def save_current_prices(url=coingecko_url_price, crypto_ids=crypto_ids):
     current_prices = fetch_current_prices(url, crypto_ids)
-    current_prices_fh = 'data/current_prices.csv'
+    current_prices_fh = 'data/coingecko/current_prices.csv'
     if current_prices:
         df = pd.DataFrame(current_prices).T.reset_index() # Transpose to get currencies as rows
         df.columns = ['crypto', 'price']
@@ -84,7 +84,7 @@ def save_current_prices(url=coingecko_url_price, crypto_ids=crypto_ids):
 
 """
 Save prices over time for the different crypto currencies identified in crypto_ids.
-Files saved in folder prices_over_time/crypto_id_prices.csv
+Files saved in folder data/coingecko/{ crypto_id }_prices.csv
 """
 def save_prices_over_time(crypto_ids=crypto_ids):
     for crypto_id in crypto_ids:
@@ -92,5 +92,5 @@ def save_prices_over_time(crypto_ids=crypto_ids):
         if prices_over_time:
             df_prices_over_time = pd.DataFrame(prices_over_time['prices'], columns=['timestamp', 'price'])
             df_prices_over_time['timestamp'] = pd.to_datetime(df_prices_over_time['timestamp'], unit='ms') # Convert timestamp to datetime
-            df_prices_over_time.to_csv(f'data/prices_over_time/{crypto_id}_prices.csv', index=False)
+            df_prices_over_time.to_csv(f'data/coingecko/{crypto_id}_prices.csv', index=False)
 
