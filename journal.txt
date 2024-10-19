@@ -27,4 +27,10 @@
  !! Improve template for index for kline pages
  !! Start researching about Machine Learning techniques for price prediction
  !! Look at what other data values / heuristics such as web scraping from twitter and sentiment analysis.
+
+18/10/2024
+ Started implementation of neural network
+ Used LSTM model with 2 hidden layers
+ Used the 5 previous inputs to predict the next close value.
+
  
