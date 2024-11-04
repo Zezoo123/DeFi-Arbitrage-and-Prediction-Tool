@@ -33,4 +33,6 @@
  Used LSTM model with 2 hidden layers
  Used the 5 previous inputs to predict the next close value.
 
+04/11/2024
+ Read paper (Prediction and interpretation of daily NFT and DeFi prices dynamics: Inspection through ensemble machine learning & XAI)
  
