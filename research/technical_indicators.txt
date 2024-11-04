@@ -1,0 +1,14 @@
+Paper: Prediction and interpretation of daily NFT and DeFi prices dynamics: Inspection through ensemble machine learning & XAI
+
+1. 5-Day moving average - MA5
+2. 10-Day moving average - MA10
+3. 5-Day momentum - MTM5
+4. 10-Day momentum - MTM10
+5. 5-day exponential moving average - EMA5
+6. 10-day exponential moving average - EMA10
+7. Upper Bollinger band - UB
+8. Lower Bollinger band - LB
+9. Moving average convergence divergence - MACD
+
+Use ISOMAP and UMAP for feature transformation
+Use Gradient Boosting Regression (GBR) and Random Forest (RF) for model training
