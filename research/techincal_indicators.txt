@@ -9,6 +9,7 @@ Paper: Prediction and interpretation of daily NFT and DeFi prices dynamics: Insp
 7. Upper Bollinger band - UB
 8. Lower Bollinger band - LB
 9. Moving average convergence divergence - MACD
+--- DONE ---
 
 Use ISOMAP and UMAP for feature transformation -- DONE! (implemented in my_model)
 Use Gradient Boosting Regression (GBR) and Random Forest (RF) for model training -- DONE! (implemented in my_model)
