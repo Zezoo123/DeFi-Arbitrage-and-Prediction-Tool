@@ -39,3 +39,8 @@
 
  !! explore my model and try other stuff
  !! Cross validation with gridsearch on isomap and umap hyperparamaters (optimization)
+
+05/11/2024
+ Rigouresly tested for the different hyperparamters in my model using GridSearch.
+ Tested model with early stopping and it made it worse.
+ 
