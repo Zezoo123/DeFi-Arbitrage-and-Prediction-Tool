@@ -43,4 +43,11 @@
 05/11/2024
  Rigouresly tested for the different hyperparamters in my model using GridSearch.
  Tested model with early stopping and it made it worse.
+
+06/11/2024
+ Start feature engineering
  
+07/11/2024
+ Add alot of features and add it to my model
+ Use lagged values to fully test gbr
+ Happy with model R2 score 0.995 very high and MSE of ~25000
