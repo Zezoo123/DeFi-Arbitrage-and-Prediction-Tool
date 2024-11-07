@@ -27,4 +27,20 @@
  !! Improve template for index for kline pages
  !! Start researching about Machine Learning techniques for price prediction
  !! Look at what other data values / heuristics such as web scraping from twitter and sentiment analysis.
+
+18/10/2024
+ Started implementation of neural network
+ Used LSTM model with 2 hidden layers
+ Used the 5 previous inputs to predict the next close value.
+
+04/11/2024
+ Read paper (Prediction and interpretation of daily NFT and DeFi prices dynamics: Inspection through ensemble machine learning & XAI)
+ Started implementing my model which GBR and RF, while trying isomap and umap transformations on the features
+
+ !! explore my model and try other stuff
+ !! Cross validation with gridsearch on isomap and umap hyperparamaters (optimization)
+
+05/11/2024
+ Rigouresly tested for the different hyperparamters in my model using GridSearch.
+ Tested model with early stopping and it made it worse.
  
