@@ -39,6 +39,16 @@ if uniswap_router_abi:
     uniswap_router_contract = w3.eth.contract(address=uniswap_router_address, abi=uniswap_router_abi)   
 
 def get_uniswap_price(token_code, token_address):
+    """
+    Fetches the price of a given token in ETH from Uniswap.
+
+    Parameters:
+    token_code (str): The code of the token (e.g., 'DAI', 'USDT', 'USDC').
+    token_address (str): The Ethereum address of the token.
+
+    Returns:
+    float: The price of the token in ETH, or None if an error occurs.
+    """
     eth_address = w3.to_checksum_address('0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE')
     weth_address = w3.to_checksum_address('0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2')  # WETH address
     token_address = w3.to_checksum_address(token_address)
