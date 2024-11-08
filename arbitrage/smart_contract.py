@@ -1,7 +1,7 @@
 from web3 import Web3
+import os
 
 # Connect to the Ethereum network
-infural_url = "https://mainnet.infura.io/v3/e7f73227604947909042727b8c0e842e"
 w3 = Web3(Web3.HTTPProvider(infural_url))
 
 # Check the connection:
