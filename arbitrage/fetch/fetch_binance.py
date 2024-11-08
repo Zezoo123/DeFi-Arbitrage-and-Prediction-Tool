@@ -20,7 +20,7 @@ try:
 
     # Calculating the inferred DAI/WETH price
     eth_usdt_price = get_binance_price('ETHUSDT')
-    print(f"Inferred ETH/USDT price: {eth_usdt_price:.20f} USDT")
+    print(f"Binance price for ETH/USDT: {eth_usdt_price:.20f} USDT")
 
     dai_eth_price = dai_usdt_price / eth_usdt_price
     print(f"Inferred DAI/ETH price: {dai_eth_price:.20f} ETH")

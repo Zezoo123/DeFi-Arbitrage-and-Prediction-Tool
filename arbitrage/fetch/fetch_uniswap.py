@@ -45,13 +45,11 @@ def get_uniswap_price(token_code, token_address):
     
     if token_code == 'DAI':
         amount_in = 10 ** 18
-    elif token_code == 'USDC':
+    elif token_code == 'USDT' or token_code == 'USDC':
         amount_in = 10 ** 6
 
     path = [token_address, weth_address]
     try:
-        print(f"Fetching price for token: {token_address}")
-        print(f"Using path: {path}")
         amounts_out = uniswap_router_contract.functions.getAmountsOut(amount_in, path).call()
         return w3.from_wei(amounts_out[1], 'ether')
     except ValueError as e:
@@ -76,3 +74,11 @@ if usdc_price is not None:
     print(f"Uniswap price for USDC: {usdc_price} ETH")
 else:
     print("Failed to fetch the price for USDC.")
+
+# Example usage with USDT
+usdt_token_address = '0xdAC17F958D2ee523a2206206994597C13D831ec7'  # USDT token address
+usdt_price = get_uniswap_price('USDT', usdt_token_address)
+if usdt_price is not None:
+    print(f"Uniswap price for USDT: {usdt_price} ETH")
+else:
+    print("Failed to fetch the price for USDT.")
