@@ -44,6 +44,7 @@ def get_uniswap_router_contract():
 def get_uniswap_price(token_code, token_address):
     """
     Fetches the price of a given token in ETH from Uniswap.
+    Only to be used in file ../ or ~/arbitrage
 
     Parameters:
     token_code (str): The code of the token (e.g., 'DAI', 'USDT', 'USDC').
