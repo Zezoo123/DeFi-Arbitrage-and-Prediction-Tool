@@ -31,3 +31,7 @@ def load_abi_json(filename):
 uniswap_router_abi_json_fh = "uniswap_v2_router_abi.json"
 uniswap_router_abi = load_abi_json(uniswap_router_abi_json_fh)
 uniswap_router_address = '0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f'
+
+# Create contract instance
+uniswap_router_contract = w3.eth.contract(address=uniswap_router_address, abi=uniswap_router_abi)   
+
