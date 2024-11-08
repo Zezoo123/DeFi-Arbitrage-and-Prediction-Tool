@@ -73,7 +73,7 @@ def get_uniswap_price(token_code, token_address):
 dai_token_address = '0x6B175474E89094C44Da98b954EedeAC495271d0F'     # DAI token address
 dai_price = get_uniswap_price('DAI', dai_token_address)
 if dai_price is not None:
-    print(f"Uniswap price for DAI: {dai_price} ETH")
+    print(f"Uniswap price for DAI: {dai_price} WETH")
 else:
     print("Failed to fetch the price for DAI.")
 
@@ -81,7 +81,7 @@ else:
 usdc_token_address = '0xA0b86991c6218B36c1d19D4a2e9Eb0cE3606EB48'  # USDC token address
 usdc_price = get_uniswap_price('USDC', usdc_token_address)
 if usdc_price is not None:
-    print(f"Uniswap price for USDC: {usdc_price} ETH")
+    print(f"Uniswap price for USDC: {usdc_price} WETH")
 else:
     print("Failed to fetch the price for USDC.")
 
@@ -89,6 +89,6 @@ else:
 usdt_token_address = '0xdAC17F958D2ee523a2206206994597C13D831ec7'  # USDT token address
 usdt_price = get_uniswap_price('USDT', usdt_token_address)
 if usdt_price is not None:
-    print(f"Uniswap price for USDT: {usdt_price} ETH")
+    print(f"Uniswap price for USDT: {usdt_price} WETH")
 else:
     print("Failed to fetch the price for USDT.")
