@@ -38,13 +38,17 @@ if uniswap_router_abi:
     # Create contract instance
     uniswap_router_contract = w3.eth.contract(address=uniswap_router_address, abi=uniswap_router_abi)   
 
-def get_uniswap_price(token_address):
+def get_uniswap_price(token_code, token_address):
     eth_address = w3.to_checksum_address('0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE')
     weth_address = w3.to_checksum_address('0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2')  # WETH address
     token_address = w3.to_checksum_address(token_address)
-    amount_in = w3.to_wei(1, 'ether')
+    
+    if token_code == 'DAI':
+        amount_in = 10 ** 18
+    elif token_code == 'USDC':
+        amount_in = 10 ** 6
 
-    path = [weth_address, token_address]
+    path = [token_address, weth_address]
     try:
         print(f"Fetching price for token: {token_address}")
         print(f"Using path: {path}")
@@ -59,7 +63,7 @@ def get_uniswap_price(token_address):
     
 # Example usage with DAI
 dai_token_address = '0x6B175474E89094C44Da98b954EedeAC495271d0F'     # DAI token address
-dai_price = get_uniswap_price(dai_token_address)
+dai_price = get_uniswap_price('DAI', dai_token_address)
 if dai_price is not None:
     print(f"Uniswap price for DAI: {dai_price} ETH")
 else:
@@ -67,7 +71,7 @@ else:
 
 # Example usage with USDC
 usdc_token_address = '0xA0b86991c6218B36c1d19D4a2e9Eb0cE3606EB48'  # USDC token address
-usdc_price = get_uniswap_price(usdc_token_address)
+usdc_price = get_uniswap_price('USDC', usdc_token_address)
 if usdc_price is not None:
     print(f"Uniswap price for USDC: {usdc_price} ETH")
 else:
