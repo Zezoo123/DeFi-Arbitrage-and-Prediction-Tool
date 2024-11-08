@@ -49,7 +49,7 @@ def get_uniswap_price(token_address):
         print(f"Fetching price for token: {token_address}")
         print(f"Using path: {path}")
         amounts_out = uniswap_router_contract.functions.getAmountsOut(amount_in, path).call()
-        return w3.fromWei(amounts_out[1], 'ether')
+        return w3.from_wei(amounts_out[1], 'ether')
     except ValueError as e:
         print(f"Error fetching price - likely due to contract call: {e}")
         return None
@@ -58,7 +58,7 @@ def get_uniswap_price(token_address):
         return None
     
 # Example usage with DAI
-dai_token_address = w3.to_checksum_address('0x6B175474E89094C44Da98b954EedeAC495271d0F')  # DAI token address
+dai_token_address = '0x6B175474E89094C44Da98b954EedeAC495271d0F'     # DAI token address
 dai_price = get_uniswap_price(dai_token_address)
 if dai_price is not None:
     print(f"Uniswap price for DAI: {dai_price} ETH")
@@ -66,7 +66,7 @@ else:
     print("Failed to fetch the price for DAI.")
 
 # Example usage with USDC
-usdc_token_address = w3.to_checksum_address('0xA0b86991c6218B36c1d19D4a2e9Eb0cE3606EB48')  # USDC token address
+usdc_token_address = '0xA0b86991c6218B36c1d19D4a2e9Eb0cE3606EB48'  # USDC token address
 usdc_price = get_uniswap_price(usdc_token_address)
 if usdc_price is not None:
     print(f"Uniswap price for USDC: {usdc_price} ETH")
