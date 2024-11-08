@@ -51,3 +51,8 @@
  Add alot of features and add it to my model
  Use lagged values to fully test gbr
  Happy with model R2 score 0.995 very high and MSE of ~25000
+
+08/11/2024
+ Start development of arbitrage branch
+ Opened alot of issues for future improvements
+ Opened Discussions
