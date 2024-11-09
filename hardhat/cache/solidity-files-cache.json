@@ -74,6 +74,307 @@
       "artifacts": [
         "Lock"
       ]
+    },
+    "/Users/zezo/project/DeFi-Arbitrage-and-Prediction-Tool/hardhat/contracts/MockDAI.sol": {
+      "lastModificationDate": 1731181867554,
+      "contentHash": "1520032aa94e3db7eaa83a67ce340bd5",
+      "sourceName": "contracts/MockDAI.sol",
+      "solcConfig": {
+        "version": "0.8.27",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC20/ERC20.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "MockDAI"
+      ]
+    },
+    "/Users/zezo/project/DeFi-Arbitrage-and-Prediction-Tool/node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol": {
+      "lastModificationDate": 1731182750914,
+      "contentHash": "38910c3dfa5e3778fac8888b1d714084",
+      "sourceName": "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+      "solcConfig": {
+        "version": "0.8.27",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IERC20.sol",
+        "./extensions/IERC20Metadata.sol",
+        "../../utils/Context.sol",
+        "../../interfaces/draft-IERC6093.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "ERC20"
+      ]
+    },
+    "/Users/zezo/project/DeFi-Arbitrage-and-Prediction-Tool/node_modules/@openzeppelin/contracts/utils/Context.sol": {
+      "lastModificationDate": 1731182750909,
+      "contentHash": "67bfbc07588eb8683b3fd8f6f909563e",
+      "sourceName": "@openzeppelin/contracts/utils/Context.sol",
+      "solcConfig": {
+        "version": "0.8.27",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "Context"
+      ]
+    },
+    "/Users/zezo/project/DeFi-Arbitrage-and-Prediction-Tool/node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+      "lastModificationDate": 1731182750923,
+      "contentHash": "8f19f64d2adadf448840908bbaf431c8",
+      "sourceName": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+      "solcConfig": {
+        "version": "0.8.27",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "IERC20"
+      ]
+    },
+    "/Users/zezo/project/DeFi-Arbitrage-and-Prediction-Tool/node_modules/@openzeppelin/contracts/interfaces/draft-IERC6093.sol": {
+      "lastModificationDate": 1731182750910,
+      "contentHash": "267d92fe4de67b1bdb3302c08f387dbf",
+      "sourceName": "@openzeppelin/contracts/interfaces/draft-IERC6093.sol",
+      "solcConfig": {
+        "version": "0.8.27",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "IERC1155Errors",
+        "IERC20Errors",
+        "IERC721Errors"
+      ]
+    },
+    "/Users/zezo/project/DeFi-Arbitrage-and-Prediction-Tool/node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
+      "lastModificationDate": 1731182750923,
+      "contentHash": "794db3115001aa372c79326fcfd44b1f",
+      "sourceName": "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+      "solcConfig": {
+        "version": "0.8.27",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../IERC20.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "IERC20Metadata"
+      ]
+    },
+    "/Users/zezo/project/DeFi-Arbitrage-and-Prediction-Tool/hardhat/contracts/MockWETH.sol": {
+      "lastModificationDate": 1731181883119,
+      "contentHash": "42464bfb6acfc137b581d88726c123ce",
+      "sourceName": "contracts/MockWETH.sol",
+      "solcConfig": {
+        "version": "0.8.27",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC20/ERC20.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "MockWETH"
+      ]
+    },
+    "/Users/zezo/project/DeFi-Arbitrage-and-Prediction-Tool/hardhat/contracts/MockUniswapRouter.sol": {
+      "lastModificationDate": 1731181911600,
+      "contentHash": "b403f1328894e52ee9a12a12823b55c9",
+      "sourceName": "contracts/MockUniswapRouter.sol",
+      "solcConfig": {
+        "version": "0.8.27",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "MockUniswapRouter"
+      ]
     }
   }
 }
