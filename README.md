@@ -14,3 +14,7 @@ In the neural_networks folder you will see a simple Long-Short-Term-Memory (LSTM
 
 In my_model.py you will find a model which I create using a hybrid approach to predict prices.
 my_model.py is much more advanced than the lstm and uses a combination of <i>ISOMAP</i> and <i>UMAP</i> features which are then gridsearched using the Random Forest Regressor (RF) and the Gradient Boosting Regressor (GBR).
+
+## Arbitrage
+
+In the arbitrage directory you can find a script smart_contract.py which uses functions from different files under the fetch folder, to generate the current prices on different exchanges. 
