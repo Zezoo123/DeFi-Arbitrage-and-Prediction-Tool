@@ -1,0 +1,1 @@
+This is some templated scaffolding.  {{title}} should not be replaced.
