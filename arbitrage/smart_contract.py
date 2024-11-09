@@ -3,7 +3,7 @@ import os
 
 sys.path.append(os.path.abspath(os.path.join('fetch/')))
 
-from fetch_gas import get_gas_prices
+from fetch_gas import get_gas_prices, calculate_gas_fee
 from fetch_binance import get_binance_price
 from fetch_uniswap import get_uniswap_price, w3, get_uniswap_router_contract
 
@@ -60,3 +60,7 @@ else:
 price_diff = float(dai_price) - dai_eth_price
 price_diff = -price_diff if price_diff < 0 else price_diff
 print(f"Price difference between Uniswap and Binance for DAI: {price_diff:.20f} WETH")
+
+TRADE_VOLUME = 1000
+
+propose_gas_price = gas_prices['ProposeGasPrice']

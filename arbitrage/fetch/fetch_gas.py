@@ -1,6 +1,7 @@
 import os
 from dotenv import load_dotenv
 import requests
+from decimal import Decimal
 
 load_dotenv()
 
@@ -23,3 +24,7 @@ def get_gas_prices():
     except Exception as e:
         print("Error fetching gas prices: ", e)
         return None
+    
+def calculate_gas_fee(gas_price_gwei, gas_units):
+    # Convert gas price to ETH by multiplying by gas units and dividing by 1e9
+    return (gas_price_gwei * gas_units) / Decimal(1e9)
