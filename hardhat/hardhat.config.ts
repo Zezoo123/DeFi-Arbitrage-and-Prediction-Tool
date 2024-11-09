@@ -1,6 +1,8 @@
 import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
 import "dotenv/config";
+import "@typechain/hardhat"; // Add this import
+
 
 // Load environment variables from .env file in the parent directory
 const INFURA_PROJECT_ID = process.env.INFURA_PROJECT_ID || "";
@@ -8,6 +10,10 @@ const METAMASK_PRIVATE_KEY = process.env.METAMASK_PRIVATE_KEY || "";
 
 const config: HardhatUserConfig = {
   solidity: "0.8.27",
+  typechain: {
+    outDir: "typechain-types", // Output directory for TypeChain files
+    target: "ethers-v6", // Target version
+  },
   networks: {
     // sepolia: {
     //   url: `https://sepolia.infura.io/v3/${INFURA_PROJECT_ID}`,

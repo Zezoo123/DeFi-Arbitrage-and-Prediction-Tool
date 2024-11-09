@@ -76,8 +76,8 @@
       ]
     },
     "/Users/zezo/project/DeFi-Arbitrage-and-Prediction-Tool/hardhat/contracts/MockDAI.sol": {
-      "lastModificationDate": 1731181867554,
-      "contentHash": "1520032aa94e3db7eaa83a67ce340bd5",
+      "lastModificationDate": 1731195092168,
+      "contentHash": "8d04ab48be2a04a648ff6afa411491c0",
       "sourceName": "contracts/MockDAI.sol",
       "solcConfig": {
         "version": "0.8.27",
