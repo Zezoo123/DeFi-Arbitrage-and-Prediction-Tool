@@ -23,7 +23,11 @@ import type {
 
 export interface MockUniswapRouterInterface extends Interface {
   getFunction(
-    nameOrSignature: "DAI" | "WETH" | "getAmountsOut"
+    nameOrSignature:
+      | "DAI"
+      | "WETH"
+      | "getAmountsOut"
+      | "swapExactTokensForTokens"
   ): FunctionFragment;
 
   encodeFunctionData(functionFragment: "DAI", values?: undefined): string;
@@ -32,11 +36,25 @@ export interface MockUniswapRouterInterface extends Interface {
     functionFragment: "getAmountsOut",
     values: [BigNumberish, AddressLike[]]
   ): string;
+  encodeFunctionData(
+    functionFragment: "swapExactTokensForTokens",
+    values: [
+      BigNumberish,
+      BigNumberish,
+      AddressLike[],
+      AddressLike,
+      BigNumberish
+    ]
+  ): string;
 
   decodeFunctionResult(functionFragment: "DAI", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "WETH", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "getAmountsOut",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "swapExactTokensForTokens",
     data: BytesLike
   ): Result;
 }
@@ -94,6 +112,18 @@ export interface MockUniswapRouter extends BaseContract {
     "view"
   >;
 
+  swapExactTokensForTokens: TypedContractMethod<
+    [
+      amountIn: BigNumberish,
+      amountOutMin: BigNumberish,
+      path: AddressLike[],
+      to: AddressLike,
+      deadline: BigNumberish
+    ],
+    [bigint[]],
+    "nonpayable"
+  >;
+
   getFunction<T extends ContractMethod = ContractMethod>(
     key: string | FunctionFragment
   ): T;
@@ -110,6 +140,19 @@ export interface MockUniswapRouter extends BaseContract {
     [amountIn: BigNumberish, path: AddressLike[]],
     [bigint[]],
     "view"
+  >;
+  getFunction(
+    nameOrSignature: "swapExactTokensForTokens"
+  ): TypedContractMethod<
+    [
+      amountIn: BigNumberish,
+      amountOutMin: BigNumberish,
+      path: AddressLike[],
+      to: AddressLike,
+      deadline: BigNumberish
+    ],
+    [bigint[]],
+    "nonpayable"
   >;
 
   filters: {};

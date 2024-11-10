@@ -3,7 +3,6 @@
 /* eslint-disable */
 import type * as arbitrageSol from "./Arbitrage.sol";
 export type { arbitrageSol };
-export type { Lock } from "./Lock";
 export type { MockDAI } from "./MockDAI";
 export type { MockUniswapRouter } from "./MockUniswapRouter";
 export type { MockWETH } from "./MockWETH";

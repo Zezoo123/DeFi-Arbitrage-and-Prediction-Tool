@@ -22,8 +22,6 @@ export type { GasEfficientArbitrage } from "./contracts/Arbitrage.sol/GasEfficie
 export { GasEfficientArbitrage__factory } from "./factories/contracts/Arbitrage.sol/GasEfficientArbitrage__factory";
 export type { IUniswapV2Router } from "./contracts/Arbitrage.sol/IUniswapV2Router";
 export { IUniswapV2Router__factory } from "./factories/contracts/Arbitrage.sol/IUniswapV2Router__factory";
-export type { Lock } from "./contracts/Lock";
-export { Lock__factory } from "./factories/contracts/Lock__factory";
 export type { MockDAI } from "./contracts/MockDAI";
 export { MockDAI__factory } from "./factories/contracts/MockDAI__factory";
 export type { MockUniswapRouter } from "./contracts/MockUniswapRouter";
