@@ -76,8 +76,8 @@
       ]
     },
     "/Users/zezo/project/DeFi-Arbitrage-and-Prediction-Tool/hardhat/contracts/MockDAI.sol": {
-      "lastModificationDate": 1731195092168,
-      "contentHash": "8d04ab48be2a04a648ff6afa411491c0",
+      "lastModificationDate": 1731263702555,
+      "contentHash": "f9d5f36e41c900228dab215bc1508c03",
       "sourceName": "contracts/MockDAI.sol",
       "solcConfig": {
         "version": "0.8.27",
@@ -303,8 +303,8 @@
       ]
     },
     "/Users/zezo/project/DeFi-Arbitrage-and-Prediction-Tool/hardhat/contracts/MockWETH.sol": {
-      "lastModificationDate": 1731181883119,
-      "contentHash": "42464bfb6acfc137b581d88726c123ce",
+      "lastModificationDate": 1731263698537,
+      "contentHash": "4e0366077a8043606a83449478fcf4b1",
       "sourceName": "contracts/MockWETH.sol",
       "solcConfig": {
         "version": "0.8.27",
