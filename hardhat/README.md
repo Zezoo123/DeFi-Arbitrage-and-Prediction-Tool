@@ -1,13 +1,18 @@
-# Sample Hardhat Project
+# Arbitrage Hardhat Project
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a Hardhat Ignition module that deploys that contract.
+This project uses hardhat to generate 2 mock tokens (MockWETH, MockDAI) to test arbitrage.
 
-Try running some of the following tasks:
-
+To compile contracts:
 ```shell
-npx hardhat help
+npx hardhat compile
+```
+
+To run all the tests:
+```shell
 npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat ignition deploy ./ignition/modules/Lock.js
+```
+
+To run a specfic test:
+```shell
+npx hardhat test/specific_test.ts
 ```
