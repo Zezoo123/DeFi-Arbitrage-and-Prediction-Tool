@@ -14,5 +14,5 @@ npx hardhat test
 
 To run a specfic test:
 ```shell
-npx hardhat test/specific_test.ts
+npx hardhat test test/specific_test.ts
 ```
