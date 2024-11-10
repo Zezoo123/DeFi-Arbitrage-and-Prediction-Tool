@@ -190,42 +190,6 @@
         "Context"
       ]
     },
-    "/Users/zezo/project/DeFi-Arbitrage-and-Prediction-Tool/node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol": {
-      "lastModificationDate": 1731182750923,
-      "contentHash": "8f19f64d2adadf448840908bbaf431c8",
-      "sourceName": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
-      "solcConfig": {
-        "version": "0.8.27",
-        "settings": {
-          "evmVersion": "paris",
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.20"
-      ],
-      "artifacts": [
-        "IERC20"
-      ]
-    },
     "/Users/zezo/project/DeFi-Arbitrage-and-Prediction-Tool/node_modules/@openzeppelin/contracts/interfaces/draft-IERC6093.sol": {
       "lastModificationDate": 1731182750910,
       "contentHash": "267d92fe4de67b1bdb3302c08f387dbf",
@@ -262,6 +226,42 @@
         "IERC1155Errors",
         "IERC20Errors",
         "IERC721Errors"
+      ]
+    },
+    "/Users/zezo/project/DeFi-Arbitrage-and-Prediction-Tool/node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+      "lastModificationDate": 1731182750923,
+      "contentHash": "8f19f64d2adadf448840908bbaf431c8",
+      "sourceName": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+      "solcConfig": {
+        "version": "0.8.27",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "IERC20"
       ]
     },
     "/Users/zezo/project/DeFi-Arbitrage-and-Prediction-Tool/node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
@@ -341,8 +341,8 @@
       ]
     },
     "/Users/zezo/project/DeFi-Arbitrage-and-Prediction-Tool/hardhat/contracts/MockUniswapRouter.sol": {
-      "lastModificationDate": 1731181911600,
-      "contentHash": "b403f1328894e52ee9a12a12823b55c9",
+      "lastModificationDate": 1731263379564,
+      "contentHash": "07ac6baf59eac261bb9fbdd8b598c324",
       "sourceName": "contracts/MockUniswapRouter.sol",
       "solcConfig": {
         "version": "0.8.27",
