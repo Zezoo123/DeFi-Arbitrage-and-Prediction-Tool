@@ -27,7 +27,6 @@ export interface MockUniswapRouterInterface extends Interface {
       | "DAI"
       | "WETH"
       | "exchangeRate"
-      | "getAmountsOut"
       | "setExchangeRate"
       | "swapExactTokensForTokens"
   ): FunctionFragment;
@@ -37,10 +36,6 @@ export interface MockUniswapRouterInterface extends Interface {
   encodeFunctionData(
     functionFragment: "exchangeRate",
     values?: undefined
-  ): string;
-  encodeFunctionData(
-    functionFragment: "getAmountsOut",
-    values: [BigNumberish, AddressLike[]]
   ): string;
   encodeFunctionData(
     functionFragment: "setExchangeRate",
@@ -61,10 +56,6 @@ export interface MockUniswapRouterInterface extends Interface {
   decodeFunctionResult(functionFragment: "WETH", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "exchangeRate",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
-    functionFragment: "getAmountsOut",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
@@ -126,12 +117,6 @@ export interface MockUniswapRouter extends BaseContract {
 
   exchangeRate: TypedContractMethod<[], [bigint], "view">;
 
-  getAmountsOut: TypedContractMethod<
-    [amountIn: BigNumberish, path: AddressLike[]],
-    [bigint[]],
-    "view"
-  >;
-
   setExchangeRate: TypedContractMethod<
     [initalExchagneRate: BigNumberish],
     [void],
@@ -163,13 +148,6 @@ export interface MockUniswapRouter extends BaseContract {
   getFunction(
     nameOrSignature: "exchangeRate"
   ): TypedContractMethod<[], [bigint], "view">;
-  getFunction(
-    nameOrSignature: "getAmountsOut"
-  ): TypedContractMethod<
-    [amountIn: BigNumberish, path: AddressLike[]],
-    [bigint[]],
-    "view"
-  >;
   getFunction(
     nameOrSignature: "setExchangeRate"
   ): TypedContractMethod<

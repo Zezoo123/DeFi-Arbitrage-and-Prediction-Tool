@@ -18,12 +18,6 @@ contract MockUniswapRouter {
         exchangeRate = initalExchagneRate;
     }
 
-    function getAmountsOut(uint amountIn, address[] calldata path) external pure returns (uint[] memory amounts) {
-        amounts = new uint[](path.length);
-        amounts[0] = amountIn;
-        amounts[1] = amountIn * 2; // Dummy conversion rate
-    }
-
     function swapExactTokensForTokens(
         uint amountIn,
         uint amountOutMin,
