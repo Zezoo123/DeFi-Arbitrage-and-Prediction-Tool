@@ -6,10 +6,16 @@ import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 contract MockUniswapRouter {
     address public WETH;
     address public DAI;
+    uint public exchangeRate;
 
-    constructor(address weth, address dai) {
+    constructor(address weth, address dai, uint initalExchagneRate) {
         WETH = weth;
         DAI = dai;
+        exchangeRate = initalExchagneRate;
+    }
+
+    function setExchangeRate(uint initalExchagneRate) external {
+        exchangeRate = initalExchagneRate;
     }
 
     function getAmountsOut(uint amountIn, address[] calldata path) external pure returns (uint[] memory amounts) {

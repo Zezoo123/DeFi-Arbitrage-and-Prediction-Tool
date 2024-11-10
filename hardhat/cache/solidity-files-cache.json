@@ -1,44 +1,6 @@
 {
   "_format": "hh-sol-cache-2",
   "files": {
-    "/Users/zezo/project/DeFi-Arbitrage-and-Prediction-Tool/hardhat/contracts/Arbitrage.sol": {
-      "lastModificationDate": 1731178869308,
-      "contentHash": "e5492496c46b707d08abcc9dbed7b6e7",
-      "sourceName": "contracts/Arbitrage.sol",
-      "solcConfig": {
-        "version": "0.8.27",
-        "settings": {
-          "evmVersion": "paris",
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "GasEfficientArbitrage",
-        "IERC20",
-        "IUniswapV2Router"
-      ]
-    },
     "/Users/zezo/project/DeFi-Arbitrage-and-Prediction-Tool/hardhat/contracts/MockDAI.sol": {
       "lastModificationDate": 1731264625203,
       "contentHash": "f9d5f36e41c900228dab215bc1508c03",
@@ -64,6 +26,9 @@
                 "ast"
               ]
             }
+          },
+          "metadata": {
+            "useLiteralContent": false
           }
         }
       },
@@ -102,6 +67,9 @@
                 "ast"
               ]
             }
+          },
+          "metadata": {
+            "useLiteralContent": false
           }
         }
       },
@@ -143,6 +111,9 @@
                 "ast"
               ]
             }
+          },
+          "metadata": {
+            "useLiteralContent": false
           }
         }
       },
@@ -179,6 +150,9 @@
                 "ast"
               ]
             }
+          },
+          "metadata": {
+            "useLiteralContent": false
           }
         }
       },
@@ -215,6 +189,9 @@
                 "ast"
               ]
             }
+          },
+          "metadata": {
+            "useLiteralContent": false
           }
         }
       },
@@ -253,6 +230,9 @@
                 "ast"
               ]
             }
+          },
+          "metadata": {
+            "useLiteralContent": false
           }
         }
       },
@@ -267,8 +247,8 @@
       ]
     },
     "/Users/zezo/project/DeFi-Arbitrage-and-Prediction-Tool/hardhat/contracts/MockUniswapRouter.sol": {
-      "lastModificationDate": 1731266408807,
-      "contentHash": "b4eec3707472aeb538fed63d5aad5ef7",
+      "lastModificationDate": 1731267747391,
+      "contentHash": "87ed75b6d7055b11c6c3777c2d833e1c",
       "sourceName": "contracts/MockUniswapRouter.sol",
       "solcConfig": {
         "version": "0.8.27",
@@ -291,6 +271,9 @@
                 "ast"
               ]
             }
+          },
+          "metadata": {
+            "useLiteralContent": false
           }
         }
       },
@@ -329,6 +312,9 @@
                 "ast"
               ]
             }
+          },
+          "metadata": {
+            "useLiteralContent": false
           }
         }
       },

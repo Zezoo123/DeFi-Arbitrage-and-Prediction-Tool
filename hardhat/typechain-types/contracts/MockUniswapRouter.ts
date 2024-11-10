@@ -26,15 +26,25 @@ export interface MockUniswapRouterInterface extends Interface {
     nameOrSignature:
       | "DAI"
       | "WETH"
+      | "exchangeRate"
       | "getAmountsOut"
+      | "setExchangeRate"
       | "swapExactTokensForTokens"
   ): FunctionFragment;
 
   encodeFunctionData(functionFragment: "DAI", values?: undefined): string;
   encodeFunctionData(functionFragment: "WETH", values?: undefined): string;
   encodeFunctionData(
+    functionFragment: "exchangeRate",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
     functionFragment: "getAmountsOut",
     values: [BigNumberish, AddressLike[]]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "setExchangeRate",
+    values: [BigNumberish]
   ): string;
   encodeFunctionData(
     functionFragment: "swapExactTokensForTokens",
@@ -50,7 +60,15 @@ export interface MockUniswapRouterInterface extends Interface {
   decodeFunctionResult(functionFragment: "DAI", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "WETH", data: BytesLike): Result;
   decodeFunctionResult(
+    functionFragment: "exchangeRate",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
     functionFragment: "getAmountsOut",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "setExchangeRate",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
@@ -106,10 +124,18 @@ export interface MockUniswapRouter extends BaseContract {
 
   WETH: TypedContractMethod<[], [string], "view">;
 
+  exchangeRate: TypedContractMethod<[], [bigint], "view">;
+
   getAmountsOut: TypedContractMethod<
     [amountIn: BigNumberish, path: AddressLike[]],
     [bigint[]],
     "view"
+  >;
+
+  setExchangeRate: TypedContractMethod<
+    [initalExchagneRate: BigNumberish],
+    [void],
+    "nonpayable"
   >;
 
   swapExactTokensForTokens: TypedContractMethod<
@@ -135,11 +161,21 @@ export interface MockUniswapRouter extends BaseContract {
     nameOrSignature: "WETH"
   ): TypedContractMethod<[], [string], "view">;
   getFunction(
+    nameOrSignature: "exchangeRate"
+  ): TypedContractMethod<[], [bigint], "view">;
+  getFunction(
     nameOrSignature: "getAmountsOut"
   ): TypedContractMethod<
     [amountIn: BigNumberish, path: AddressLike[]],
     [bigint[]],
     "view"
+  >;
+  getFunction(
+    nameOrSignature: "setExchangeRate"
+  ): TypedContractMethod<
+    [initalExchagneRate: BigNumberish],
+    [void],
+    "nonpayable"
   >;
   getFunction(
     nameOrSignature: "swapExactTokensForTokens"

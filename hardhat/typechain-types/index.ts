@@ -18,10 +18,6 @@ export type { IERC20Metadata } from "./@openzeppelin/contracts/token/ERC20/exten
 export { IERC20Metadata__factory } from "./factories/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata__factory";
 export type { IERC20 } from "./@openzeppelin/contracts/token/ERC20/IERC20";
 export { IERC20__factory } from "./factories/@openzeppelin/contracts/token/ERC20/IERC20__factory";
-export type { GasEfficientArbitrage } from "./contracts/Arbitrage.sol/GasEfficientArbitrage";
-export { GasEfficientArbitrage__factory } from "./factories/contracts/Arbitrage.sol/GasEfficientArbitrage__factory";
-export type { IUniswapV2Router } from "./contracts/Arbitrage.sol/IUniswapV2Router";
-export { IUniswapV2Router__factory } from "./factories/contracts/Arbitrage.sol/IUniswapV2Router__factory";
 export type { MockDAI } from "./contracts/MockDAI";
 export { MockDAI__factory } from "./factories/contracts/MockDAI__factory";
 export type { MockUniswapRouter } from "./contracts/MockUniswapRouter";

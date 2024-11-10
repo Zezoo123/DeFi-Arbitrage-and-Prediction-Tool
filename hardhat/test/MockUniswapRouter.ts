@@ -30,7 +30,7 @@ describe("MockUniswapRouter Contract", function () {
 
     // Deploy MockUniswapRouter
     const MockUniswapRouterFactory = await ethers.getContractFactory("MockUniswapRouter");
-    mockUniswapRouter = await MockUniswapRouterFactory.connect(owner).deploy(mockWETHAddress, mockDAIAddress);
+    mockUniswapRouter = await MockUniswapRouterFactory.connect(owner).deploy(mockWETHAddress, mockDAIAddress, 2);
     await mockUniswapRouter.waitForDeployment();
 
     // Fund the router with tokens
