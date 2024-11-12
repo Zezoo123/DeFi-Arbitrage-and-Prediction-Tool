@@ -10,7 +10,7 @@ if you want to clean the directory before compiling the contracts run:
 ```shell
 npx hardhat clean
 npx hardhat compile
-``
+```
 
 
 To run all the tests:
