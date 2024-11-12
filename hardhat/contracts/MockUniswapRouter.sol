@@ -7,11 +7,20 @@ contract MockUniswapRouter {
     address public WETH;
     address public DAI;
     uint public exchangeRate;
+    uint public feeRate = 30; // 0.3% fee
 
     constructor(address weth, address dai, uint initalExchagneRate) {
         WETH = weth;
         DAI = dai;
         exchangeRate = initalExchagneRate;
+    }
+    
+    function setFee(uint newFeeRate) external{
+        feeRate = newFeeRate;
+    }
+
+    function getAmountAfterFee(uint amount) public returns (uint256){
+        return (amount * exchangeRate) * (10000 - feeRate) / 10000;
     }
 
     function setExchangeRate(uint initalExchagneRate) external {
@@ -35,8 +44,9 @@ contract MockUniswapRouter {
         bool success = IERC20(tokenIn).transferFrom(msg.sender, address(this), amountIn);
         require(success, "Transfer of tokenIn failed");
 
-        // Simulate swapping logic (dummy conversion rate)
-        uint amountOut = amountIn * 2; // For simplicity, tokenOut amount is double tokenIn amount
+        // Simulate swapping
+        uint256 amountInWithFee = getAmountAfterFee(amountIn);
+        uint256 amountOut = amountInWithFee * exchangeRate;
 
         require(amountOut >= amountOutMin, "UniswapV2Router: INSUFFICIENT_OUTPUT_AMOUNT");
 
@@ -45,7 +55,7 @@ contract MockUniswapRouter {
         require(success, "Transfer of tokenOut failed");
 
         // Return the amounts array
-        amounts = new uint[](path.length);
+        amounts = new uint256[](path.length);
         amounts[0] = amountIn;
         amounts[1] = amountOut;
     }

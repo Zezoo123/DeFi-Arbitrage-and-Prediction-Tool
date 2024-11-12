@@ -229,8 +229,8 @@
       ]
     },
     "/Users/zezo/project/DeFi-Arbitrage-and-Prediction-Tool/hardhat/contracts/MockUniswapRouter.sol": {
-      "lastModificationDate": 1731268572085,
-      "contentHash": "8ecaa5a17edfeb42ea11ebe9df823585",
+      "lastModificationDate": 1731345009061,
+      "contentHash": "d23f27607f110966ec028ce789aa3d30",
       "sourceName": "contracts/MockUniswapRouter.sol",
       "solcConfig": {
         "version": "0.8.27",

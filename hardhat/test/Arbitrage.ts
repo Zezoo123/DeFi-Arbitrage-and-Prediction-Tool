@@ -73,7 +73,8 @@ describe("Arbitrage Testing", function() {
 
         // Check WETH balance after first swap
         const wethBalanceAfterSwap1 = await mockWETH.balanceOf(arbitrageur.address);
-        expect(wethBalanceAfterSwap1).to.equal(daiAmountIn * 2n); // exchange rate of 2
+        const expectedWethBalanceAfterSwap1 = await router1.connect(arbitrageur).getAmountAfterFee(daiAmountIn)
+        expect(wethBalanceAfterSwap1).to.equal(expectedWethBalanceAfterSwap1); // exchange rate of 2
         
         // Step 2: Approve Router2 and swap WETH back to DAI
         await mockWETH.connect(arbitrageur).approve(await router2.getAddress(), wethBalanceAfterSwap1);

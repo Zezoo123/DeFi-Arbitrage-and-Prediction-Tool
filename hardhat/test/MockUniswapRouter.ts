@@ -102,7 +102,9 @@ describe("MockUniswapRouter Contract", function () {
     const wethBalance = await mockWETH.balanceOf(addr1.address);
     const daiBalance = await mockDAI.balanceOf(addr1.address);
 
+    let daiAmountExpected = mockUniswapRouter.getAmountAfterFee(amount);
+
     expect(wethBalance).to.equal(ethers.parseEther("50"));
-    expect(daiBalance).to.equal(ethers.parseEther("100")); // amountOut = amountIn * 2
+    expect(daiBalance).to.equal(daiAmountExpected); // amountOut = amountIn * 2 - fee
   });
 });

@@ -27,7 +27,10 @@ export interface MockUniswapRouterInterface extends Interface {
       | "DAI"
       | "WETH"
       | "exchangeRate"
+      | "feeRate"
+      | "getAmountAfterFee"
       | "setExchangeRate"
+      | "setFee"
       | "swapExactTokensForTokens"
   ): FunctionFragment;
 
@@ -37,8 +40,17 @@ export interface MockUniswapRouterInterface extends Interface {
     functionFragment: "exchangeRate",
     values?: undefined
   ): string;
+  encodeFunctionData(functionFragment: "feeRate", values?: undefined): string;
+  encodeFunctionData(
+    functionFragment: "getAmountAfterFee",
+    values: [BigNumberish]
+  ): string;
   encodeFunctionData(
     functionFragment: "setExchangeRate",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "setFee",
     values: [BigNumberish]
   ): string;
   encodeFunctionData(
@@ -58,10 +70,16 @@ export interface MockUniswapRouterInterface extends Interface {
     functionFragment: "exchangeRate",
     data: BytesLike
   ): Result;
+  decodeFunctionResult(functionFragment: "feeRate", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "getAmountAfterFee",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(
     functionFragment: "setExchangeRate",
     data: BytesLike
   ): Result;
+  decodeFunctionResult(functionFragment: "setFee", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "swapExactTokensForTokens",
     data: BytesLike
@@ -117,11 +135,21 @@ export interface MockUniswapRouter extends BaseContract {
 
   exchangeRate: TypedContractMethod<[], [bigint], "view">;
 
+  feeRate: TypedContractMethod<[], [bigint], "view">;
+
+  getAmountAfterFee: TypedContractMethod<
+    [amount: BigNumberish],
+    [bigint],
+    "nonpayable"
+  >;
+
   setExchangeRate: TypedContractMethod<
     [initalExchagneRate: BigNumberish],
     [void],
     "nonpayable"
   >;
+
+  setFee: TypedContractMethod<[newFeeRate: BigNumberish], [void], "nonpayable">;
 
   swapExactTokensForTokens: TypedContractMethod<
     [
@@ -149,12 +177,21 @@ export interface MockUniswapRouter extends BaseContract {
     nameOrSignature: "exchangeRate"
   ): TypedContractMethod<[], [bigint], "view">;
   getFunction(
+    nameOrSignature: "feeRate"
+  ): TypedContractMethod<[], [bigint], "view">;
+  getFunction(
+    nameOrSignature: "getAmountAfterFee"
+  ): TypedContractMethod<[amount: BigNumberish], [bigint], "nonpayable">;
+  getFunction(
     nameOrSignature: "setExchangeRate"
   ): TypedContractMethod<
     [initalExchagneRate: BigNumberish],
     [void],
     "nonpayable"
   >;
+  getFunction(
+    nameOrSignature: "setFee"
+  ): TypedContractMethod<[newFeeRate: BigNumberish], [void], "nonpayable">;
   getFunction(
     nameOrSignature: "swapExactTokensForTokens"
   ): TypedContractMethod<
