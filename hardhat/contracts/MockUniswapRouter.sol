@@ -20,7 +20,7 @@ contract MockUniswapRouter {
     }
 
     function getAmountAfterFee(uint amount) public returns (uint256){
-        return (amount * exchangeRate) * (10000 - feeRate) / 10000;
+        return (amount * (10000 - feeRate)) / 10000;
     }
 
     function setExchangeRate(uint initalExchagneRate) external {

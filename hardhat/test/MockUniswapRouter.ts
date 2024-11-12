@@ -82,29 +82,29 @@ describe("MockUniswapRouter Contract", function () {
   });
 
   it("should revert if output amount is below minimum specified", async function () {
+    // Owner transfers WETH to addr1
     const amount = ethers.parseEther("100");
 
-    // Owner transfers WETH to addr1
     await mockWETH.connect(owner).transfer(addr1.address, amount);
 
     // addr1 approves the router
     await mockWETH.connect(addr1).approve(await mockUniswapRouter.getAddress(), amount);
 
     // Perform the swap
-    await mockUniswapRouter.connect(addr1).swapExactTokensForTokens(
-      ethers.parseEther("50"),
-      ethers.parseEther("0"),
-      [await mockWETH.getAddress(), await mockDAI.getAddress()],
-      addr1.address,
-      BigInt(Math.floor(Date.now() / 1000)) + 60n * 10n
-    );
+    await expect(
+        mockUniswapRouter.connect(addr1).swapExactTokensForTokens(
+        ethers.parseEther("50"),
+        ethers.parseEther("100"),
+        [await mockWETH.getAddress(), await mockDAI.getAddress()],
+        addr1.address,
+        BigInt(Math.floor(Date.now() / 1000)) + 60n * 10n
+      )
+    ).to.be.revertedWith("UniswapV2Router: INSUFFICIENT_OUTPUT_AMOUNT");
 
     const wethBalance = await mockWETH.balanceOf(addr1.address);
     const daiBalance = await mockDAI.balanceOf(addr1.address);
 
-    let daiAmountExpected = mockUniswapRouter.getAmountAfterFee(amount);
-
-    expect(wethBalance).to.equal(ethers.parseEther("50"));
-    expect(daiBalance).to.equal(daiAmountExpected); // amountOut = amountIn * 2 - fee
+    expect(wethBalance).to.equal(amount);
+    expect(daiBalance).to.equal(ethers.parseEther("0")); // amountOut = amountIn * 2 - fee
   });
 });
