@@ -22,3 +22,6 @@ To run a specfic test:
 ```shell
 npx hardhat test test/specific_test.ts
 ```
+
+The current Arbitrage.ts test file only checks if the profits made are greater than 0.
+More testing should be implemented to ensure profits made are correct using the mock routers.
