@@ -3,6 +3,8 @@
 /* eslint-disable */
 import type * as openzeppelin from "./@openzeppelin";
 export type { openzeppelin };
+import type * as uniswap from "./@uniswap";
+export type { uniswap };
 import type * as contracts from "./contracts";
 export type { contracts };
 export * as factories from "./factories";
@@ -18,6 +20,12 @@ export type { IERC20Metadata } from "./@openzeppelin/contracts/token/ERC20/exten
 export { IERC20Metadata__factory } from "./factories/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata__factory";
 export type { IERC20 } from "./@openzeppelin/contracts/token/ERC20/IERC20";
 export { IERC20__factory } from "./factories/@openzeppelin/contracts/token/ERC20/IERC20__factory";
+export type { IUniswapV2Router01 } from "./@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router01";
+export { IUniswapV2Router01__factory } from "./factories/@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router01__factory";
+export type { IUniswapV2Router02 } from "./@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router02";
+export { IUniswapV2Router02__factory } from "./factories/@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router02__factory";
+export type { Arbitrage } from "./contracts/Arbitrage";
+export { Arbitrage__factory } from "./factories/contracts/Arbitrage__factory";
 export type { MockDAI } from "./contracts/MockDAI";
 export { MockDAI__factory } from "./factories/contracts/MockDAI__factory";
 export type { MockUniswapRouter } from "./contracts/MockUniswapRouter";

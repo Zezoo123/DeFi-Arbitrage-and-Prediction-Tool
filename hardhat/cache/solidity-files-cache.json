@@ -1,6 +1,118 @@
 {
   "_format": "hh-sol-cache-2",
   "files": {
+    "/Users/zezo/project/DeFi-Arbitrage-and-Prediction-Tool/hardhat/contracts/Arbitrage.sol": {
+      "lastModificationDate": 1741280997263,
+      "contentHash": "7b050541c512637ff8fb7b4f33b9d09d",
+      "sourceName": "contracts/Arbitrage.sol",
+      "solcConfig": {
+        "version": "0.8.27",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router02.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.17"
+      ],
+      "artifacts": [
+        "Arbitrage"
+      ]
+    },
+    "/Users/zezo/project/DeFi-Arbitrage-and-Prediction-Tool/node_modules/@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router02.sol": {
+      "lastModificationDate": 1741181416969,
+      "contentHash": "3fd36426274a5b35f7e702f87ba08a8e",
+      "sourceName": "@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router02.sol",
+      "solcConfig": {
+        "version": "0.8.27",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./IUniswapV2Router01.sol"
+      ],
+      "versionPragmas": [
+        ">=0.6.2"
+      ],
+      "artifacts": [
+        "IUniswapV2Router02"
+      ]
+    },
+    "/Users/zezo/project/DeFi-Arbitrage-and-Prediction-Tool/node_modules/@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router01.sol": {
+      "lastModificationDate": 1741181416969,
+      "contentHash": "95d8729b2c698dc663322167b3c085fe",
+      "sourceName": "@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router01.sol",
+      "solcConfig": {
+        "version": "0.8.27",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.6.2"
+      ],
+      "artifacts": [
+        "IUniswapV2Router01"
+      ]
+    },
     "/Users/zezo/project/DeFi-Arbitrage-and-Prediction-Tool/hardhat/contracts/MockDAI.sol": {
       "lastModificationDate": 1731264625203,
       "contentHash": "f9d5f36e41c900228dab215bc1508c03",
@@ -116,42 +228,6 @@
         "IERC20"
       ]
     },
-    "/Users/zezo/project/DeFi-Arbitrage-and-Prediction-Tool/node_modules/@openzeppelin/contracts/utils/Context.sol": {
-      "lastModificationDate": 1731182750909,
-      "contentHash": "67bfbc07588eb8683b3fd8f6f909563e",
-      "sourceName": "@openzeppelin/contracts/utils/Context.sol",
-      "solcConfig": {
-        "version": "0.8.27",
-        "settings": {
-          "evmVersion": "paris",
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.20"
-      ],
-      "artifacts": [
-        "Context"
-      ]
-    },
     "/Users/zezo/project/DeFi-Arbitrage-and-Prediction-Tool/node_modules/@openzeppelin/contracts/interfaces/draft-IERC6093.sol": {
       "lastModificationDate": 1731182750910,
       "contentHash": "267d92fe4de67b1bdb3302c08f387dbf",
@@ -188,6 +264,42 @@
         "IERC1155Errors",
         "IERC20Errors",
         "IERC721Errors"
+      ]
+    },
+    "/Users/zezo/project/DeFi-Arbitrage-and-Prediction-Tool/node_modules/@openzeppelin/contracts/utils/Context.sol": {
+      "lastModificationDate": 1731182750909,
+      "contentHash": "67bfbc07588eb8683b3fd8f6f909563e",
+      "sourceName": "@openzeppelin/contracts/utils/Context.sol",
+      "solcConfig": {
+        "version": "0.8.27",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "Context"
       ]
     },
     "/Users/zezo/project/DeFi-Arbitrage-and-Prediction-Tool/node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
@@ -229,8 +341,8 @@
       ]
     },
     "/Users/zezo/project/DeFi-Arbitrage-and-Prediction-Tool/hardhat/contracts/MockUniswapRouter.sol": {
-      "lastModificationDate": 1731441106540,
-      "contentHash": "123d3828f90761a6e3d6bb56e2f06f41",
+      "lastModificationDate": 1740071199514,
+      "contentHash": "be82abd9d283d5d31c5b42ef4e719ed0",
       "sourceName": "contracts/MockUniswapRouter.sol",
       "solcConfig": {
         "version": "0.8.27",

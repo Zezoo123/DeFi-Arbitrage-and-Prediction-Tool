@@ -140,7 +140,7 @@ export interface MockUniswapRouter extends BaseContract {
   getAmountAfterFee: TypedContractMethod<
     [amount: BigNumberish],
     [bigint],
-    "nonpayable"
+    "view"
   >;
 
   setExchangeRate: TypedContractMethod<
@@ -181,7 +181,7 @@ export interface MockUniswapRouter extends BaseContract {
   ): TypedContractMethod<[], [bigint], "view">;
   getFunction(
     nameOrSignature: "getAmountAfterFee"
-  ): TypedContractMethod<[amount: BigNumberish], [bigint], "nonpayable">;
+  ): TypedContractMethod<[amount: BigNumberish], [bigint], "view">;
   getFunction(
     nameOrSignature: "setExchangeRate"
   ): TypedContractMethod<

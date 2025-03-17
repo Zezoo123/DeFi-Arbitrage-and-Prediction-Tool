@@ -5,8 +5,7 @@ import "@typechain/hardhat"; // Add this import
 
 
 // Load environment variables from .env file in the parent directory
-const INFURA_PROJECT_ID = process.env.INFURA_PROJECT_ID || "";
-const METAMASK_PRIVATE_KEY = process.env.METAMASK_PRIVATE_KEY || "";
+const ALCHEMY_PRIVATE_KEY = process.env.ALCHEMY_KEY;
 
 const config: HardhatUserConfig = {
   solidity: "0.8.27",
@@ -15,10 +14,10 @@ const config: HardhatUserConfig = {
     target: "ethers-v6", // Target version
   },
   networks: {
-    // sepolia: {
-    //   url: `https://sepolia.infura.io/v3/${INFURA_PROJECT_ID}`,
-    //   accounts: [`0x${METAMASK_PRIVATE_KEY}`]
-    // },
+    sepolia: {
+      url: `https://eth-sepolia.g.alchemy.com/v2/${process.env.ALCHEMY_KEY}`,
+      accounts: [`${process.env.PRIVATE_KEY}`]
+    },
     localhost: {
       url: `http://127.0.0.1:8545/`,
       accounts: [

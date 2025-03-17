@@ -38,6 +38,18 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.IERC20__factory>;
     getContractFactory(
+      name: "IUniswapV2Router01",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IUniswapV2Router01__factory>;
+    getContractFactory(
+      name: "IUniswapV2Router02",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IUniswapV2Router02__factory>;
+    getContractFactory(
+      name: "Arbitrage",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.Arbitrage__factory>;
+    getContractFactory(
       name: "MockDAI",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.MockDAI__factory>;
@@ -81,6 +93,21 @@ declare module "hardhat/types/runtime" {
       signer?: ethers.Signer
     ): Promise<Contracts.IERC20>;
     getContractAt(
+      name: "IUniswapV2Router01",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IUniswapV2Router01>;
+    getContractAt(
+      name: "IUniswapV2Router02",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IUniswapV2Router02>;
+    getContractAt(
+      name: "Arbitrage",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.Arbitrage>;
+    getContractAt(
       name: "MockDAI",
       address: string | ethers.Addressable,
       signer?: ethers.Signer
@@ -121,6 +148,18 @@ declare module "hardhat/types/runtime" {
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.IERC20>;
     deployContract(
+      name: "IUniswapV2Router01",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.IUniswapV2Router01>;
+    deployContract(
+      name: "IUniswapV2Router02",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.IUniswapV2Router02>;
+    deployContract(
+      name: "Arbitrage",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.Arbitrage>;
+    deployContract(
       name: "MockDAI",
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.MockDAI>;
@@ -163,6 +202,21 @@ declare module "hardhat/types/runtime" {
       args: any[],
       signerOrOptions?: ethers.Signer | DeployContractOptions
     ): Promise<Contracts.IERC20>;
+    deployContract(
+      name: "IUniswapV2Router01",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.IUniswapV2Router01>;
+    deployContract(
+      name: "IUniswapV2Router02",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.IUniswapV2Router02>;
+    deployContract(
+      name: "Arbitrage",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.Arbitrage>;
     deployContract(
       name: "MockDAI",
       args: any[],

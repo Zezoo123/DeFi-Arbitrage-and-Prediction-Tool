@@ -19,7 +19,7 @@ contract MockUniswapRouter {
         feeRate = newFeeRate;
     }
 
-    function getAmountAfterFee(uint amount) public returns (uint256){
+    function getAmountAfterFee(uint amount) public view returns (uint256){
         return (amount * (10000 - feeRate)) / 10000;
     }
 
