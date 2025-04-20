@@ -1,25 +1,27 @@
 {
   "name": "defi-arbitrage-and-prediction-tool",
   "version": "1.0.0",
-  "description": "",
+  "description": "DeFi Arbitrage and Prediction Tool",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": [
+    "defi",
+    "arbitrage",
+    "ethereum",
+    "smart-contracts"
+  ],
   "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@nomicfoundation/hardhat-ethers": "^3.0.8",
-    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
-    "@typechain/ethers-v6": "^0.5.1",
-    "ethers": "^6.13.4",
-    "hardhat": "^2.22.16"
-  },
+  "license": "MIT",
   "dependencies": {
-    "@openzeppelin/contracts": "^5.1.0",
-    "@uniswap/v2-core": "^1.0.1",
-    "@uniswap/v2-periphery": "^1.1.0-beta.0",
-    "dotenv": "^16.4.5"
+    "@aave/core-v3": "^1.19.1",
+    "@openzeppelin/contracts": "^5.0.1",
+    "dotenv": "^16.4.5",
+    "ethers": "^6.11.1",
+    "hardhat": "^2.19.5"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0"
   }
 }

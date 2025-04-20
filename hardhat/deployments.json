@@ -1,0 +1,22 @@
+{
+    "deployments": [
+        {
+            "timestamp": "",
+            "network": "sepolia",
+            "contractAddress": "",
+            "transactionHash": "",
+            "router1": "0xC532a74256D3Db42D0Bf7a0400fEFDbad7694008",
+            "router2": "0xeaBcE3E74EF41FB40024a21Cc2ee2F5dDc615791",
+            "aaveProvider": "0x0496275d34753A48320CA58103d5220d394FF77F"
+        },
+        {
+            "timestamp": "2025-03-18T16:14:36.628Z",
+            "network": "sepolia",
+            "contractAddress": "0x0A49B27BE4fC07EEB62D5AF8eFC4dbc935c7a636",
+            "transactionHash": "0xe41c8491d677bbd98e8b55fd85195fe8366412efee4661c9bd4d67c009c6679a",
+            "router1": "0xC532a74256D3Db42D0Bf7a0400fEFDbad7694008",
+            "router2": "0xeaBcE3E74EF41FB40024a21Cc2ee2F5dDc615791",
+            "aaveProvider": "0x0496275d34753A48320CA58103d5220d394FF77F"
+        }
+    ]
+}

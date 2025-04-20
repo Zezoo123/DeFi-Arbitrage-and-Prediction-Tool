@@ -1,0 +1,16 @@
+// Sepolia testnet token addresses
+const SEPOLIA_TOKENS = {
+    // WETH (Wrapped Ether)
+    WETH: "0x7b79995e5f793A07Bc00c21412e50Ecae098E7f9",
+    
+    // Stablecoins
+    DAI: "0x68194a729C2450ad26072b3D33ADaCbcef39D574",
+    USDC: "0x5dEaC602762362FE5f135FA5904351916053cF70",
+    USDT: "0xaA8E23Fb1079EA71e0a56F48a2aA51851D8433D0",
+    
+    // Other tokens
+    LINK: "0x779877A7B0D9E8603169DdbD7836e478b4624789",
+    WBTC: "0x92f3B59a79bFf5dc60c0d59eA13a44D082B2bdFC"
+};
+
+module.exports = SEPOLIA_TOKENS; 

@@ -8,6 +8,7 @@ import type {
   FunctionFragment,
   Result,
   Interface,
+  EventFragment,
   AddressLike,
   ContractRunner,
   ContractMethod,
@@ -17,6 +18,7 @@ import type {
   TypedContractEvent,
   TypedDeferredTopicFilter,
   TypedEventLog,
+  TypedLogDescription,
   TypedListener,
   TypedContractMethod,
 } from "../common";
@@ -24,36 +26,138 @@ import type {
 export interface ArbitrageInterface extends Interface {
   getFunction(
     nameOrSignature:
-      | "executeArbitrage"
-      | "path"
-      | "pathReversed"
+      | "ADDRESSES_PROVIDER"
+      | "DEADLINE_EXTENSION"
+      | "MINIMUM_PROFIT"
+      | "POOL"
+      | "emergencyWithdraw"
+      | "executeOperation"
+      | "owner"
+      | "renounceOwnership"
       | "router1"
       | "router2"
+      | "startArbitrage"
+      | "transferOwnership"
   ): FunctionFragment;
 
+  getEvent(
+    nameOrSignatureOrTopic: "ArbitrageExecuted" | "OwnershipTransferred"
+  ): EventFragment;
+
   encodeFunctionData(
-    functionFragment: "executeArbitrage",
-    values: [AddressLike, AddressLike, BigNumberish]
+    functionFragment: "ADDRESSES_PROVIDER",
+    values?: undefined
   ): string;
-  encodeFunctionData(functionFragment: "path", values: [BigNumberish]): string;
   encodeFunctionData(
-    functionFragment: "pathReversed",
-    values: [BigNumberish]
+    functionFragment: "DEADLINE_EXTENSION",
+    values?: undefined
+  ): string;
+  encodeFunctionData(
+    functionFragment: "MINIMUM_PROFIT",
+    values?: undefined
+  ): string;
+  encodeFunctionData(functionFragment: "POOL", values?: undefined): string;
+  encodeFunctionData(
+    functionFragment: "emergencyWithdraw",
+    values: [AddressLike]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "executeOperation",
+    values: [AddressLike, BigNumberish, BigNumberish, AddressLike, BytesLike]
+  ): string;
+  encodeFunctionData(functionFragment: "owner", values?: undefined): string;
+  encodeFunctionData(
+    functionFragment: "renounceOwnership",
+    values?: undefined
   ): string;
   encodeFunctionData(functionFragment: "router1", values?: undefined): string;
   encodeFunctionData(functionFragment: "router2", values?: undefined): string;
+  encodeFunctionData(
+    functionFragment: "startArbitrage",
+    values: [AddressLike, BigNumberish, AddressLike, BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "transferOwnership",
+    values: [AddressLike]
+  ): string;
 
   decodeFunctionResult(
-    functionFragment: "executeArbitrage",
+    functionFragment: "ADDRESSES_PROVIDER",
     data: BytesLike
   ): Result;
-  decodeFunctionResult(functionFragment: "path", data: BytesLike): Result;
   decodeFunctionResult(
-    functionFragment: "pathReversed",
+    functionFragment: "DEADLINE_EXTENSION",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "MINIMUM_PROFIT",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(functionFragment: "POOL", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "emergencyWithdraw",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "executeOperation",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(functionFragment: "owner", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "renounceOwnership",
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "router1", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "router2", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "startArbitrage",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "transferOwnership",
+    data: BytesLike
+  ): Result;
+}
+
+export namespace ArbitrageExecutedEvent {
+  export type InputTuple = [
+    tokenA: AddressLike,
+    tokenB: AddressLike,
+    amountIn: BigNumberish,
+    amountOut: BigNumberish,
+    profit: BigNumberish
+  ];
+  export type OutputTuple = [
+    tokenA: string,
+    tokenB: string,
+    amountIn: bigint,
+    amountOut: bigint,
+    profit: bigint
+  ];
+  export interface OutputObject {
+    tokenA: string;
+    tokenB: string;
+    amountIn: bigint;
+    amountOut: bigint;
+    profit: bigint;
+  }
+  export type Event = TypedContractEvent<InputTuple, OutputTuple, OutputObject>;
+  export type Filter = TypedDeferredTopicFilter<Event>;
+  export type Log = TypedEventLog<Event>;
+  export type LogDescription = TypedLogDescription<Event>;
+}
+
+export namespace OwnershipTransferredEvent {
+  export type InputTuple = [previousOwner: AddressLike, newOwner: AddressLike];
+  export type OutputTuple = [previousOwner: string, newOwner: string];
+  export interface OutputObject {
+    previousOwner: string;
+    newOwner: string;
+  }
+  export type Event = TypedContractEvent<InputTuple, OutputTuple, OutputObject>;
+  export type Filter = TypedDeferredTopicFilter<Event>;
+  export type Log = TypedEventLog<Event>;
+  export type LogDescription = TypedLogDescription<Event>;
 }
 
 export interface Arbitrage extends BaseContract {
@@ -99,43 +203,153 @@ export interface Arbitrage extends BaseContract {
     event?: TCEvent
   ): Promise<this>;
 
-  executeArbitrage: TypedContractMethod<
-    [tokenA: AddressLike, tokenB: AddressLike, amount: BigNumberish],
+  ADDRESSES_PROVIDER: TypedContractMethod<[], [string], "view">;
+
+  DEADLINE_EXTENSION: TypedContractMethod<[], [bigint], "view">;
+
+  MINIMUM_PROFIT: TypedContractMethod<[], [bigint], "view">;
+
+  POOL: TypedContractMethod<[], [string], "view">;
+
+  emergencyWithdraw: TypedContractMethod<
+    [token: AddressLike],
     [void],
     "nonpayable"
   >;
 
-  path: TypedContractMethod<[arg0: BigNumberish], [string], "view">;
+  executeOperation: TypedContractMethod<
+    [
+      asset: AddressLike,
+      amount: BigNumberish,
+      premium: BigNumberish,
+      arg3: AddressLike,
+      params: BytesLike
+    ],
+    [boolean],
+    "nonpayable"
+  >;
 
-  pathReversed: TypedContractMethod<[arg0: BigNumberish], [string], "view">;
+  owner: TypedContractMethod<[], [string], "view">;
+
+  renounceOwnership: TypedContractMethod<[], [void], "nonpayable">;
 
   router1: TypedContractMethod<[], [string], "view">;
 
   router2: TypedContractMethod<[], [string], "view">;
+
+  startArbitrage: TypedContractMethod<
+    [
+      asset: AddressLike,
+      amount: BigNumberish,
+      tokenB: AddressLike,
+      minProfitAmount: BigNumberish
+    ],
+    [void],
+    "nonpayable"
+  >;
+
+  transferOwnership: TypedContractMethod<
+    [newOwner: AddressLike],
+    [void],
+    "nonpayable"
+  >;
 
   getFunction<T extends ContractMethod = ContractMethod>(
     key: string | FunctionFragment
   ): T;
 
   getFunction(
-    nameOrSignature: "executeArbitrage"
+    nameOrSignature: "ADDRESSES_PROVIDER"
+  ): TypedContractMethod<[], [string], "view">;
+  getFunction(
+    nameOrSignature: "DEADLINE_EXTENSION"
+  ): TypedContractMethod<[], [bigint], "view">;
+  getFunction(
+    nameOrSignature: "MINIMUM_PROFIT"
+  ): TypedContractMethod<[], [bigint], "view">;
+  getFunction(
+    nameOrSignature: "POOL"
+  ): TypedContractMethod<[], [string], "view">;
+  getFunction(
+    nameOrSignature: "emergencyWithdraw"
+  ): TypedContractMethod<[token: AddressLike], [void], "nonpayable">;
+  getFunction(
+    nameOrSignature: "executeOperation"
   ): TypedContractMethod<
-    [tokenA: AddressLike, tokenB: AddressLike, amount: BigNumberish],
-    [void],
+    [
+      asset: AddressLike,
+      amount: BigNumberish,
+      premium: BigNumberish,
+      arg3: AddressLike,
+      params: BytesLike
+    ],
+    [boolean],
     "nonpayable"
   >;
   getFunction(
-    nameOrSignature: "path"
-  ): TypedContractMethod<[arg0: BigNumberish], [string], "view">;
+    nameOrSignature: "owner"
+  ): TypedContractMethod<[], [string], "view">;
   getFunction(
-    nameOrSignature: "pathReversed"
-  ): TypedContractMethod<[arg0: BigNumberish], [string], "view">;
+    nameOrSignature: "renounceOwnership"
+  ): TypedContractMethod<[], [void], "nonpayable">;
   getFunction(
     nameOrSignature: "router1"
   ): TypedContractMethod<[], [string], "view">;
   getFunction(
     nameOrSignature: "router2"
   ): TypedContractMethod<[], [string], "view">;
+  getFunction(
+    nameOrSignature: "startArbitrage"
+  ): TypedContractMethod<
+    [
+      asset: AddressLike,
+      amount: BigNumberish,
+      tokenB: AddressLike,
+      minProfitAmount: BigNumberish
+    ],
+    [void],
+    "nonpayable"
+  >;
+  getFunction(
+    nameOrSignature: "transferOwnership"
+  ): TypedContractMethod<[newOwner: AddressLike], [void], "nonpayable">;
 
-  filters: {};
+  getEvent(
+    key: "ArbitrageExecuted"
+  ): TypedContractEvent<
+    ArbitrageExecutedEvent.InputTuple,
+    ArbitrageExecutedEvent.OutputTuple,
+    ArbitrageExecutedEvent.OutputObject
+  >;
+  getEvent(
+    key: "OwnershipTransferred"
+  ): TypedContractEvent<
+    OwnershipTransferredEvent.InputTuple,
+    OwnershipTransferredEvent.OutputTuple,
+    OwnershipTransferredEvent.OutputObject
+  >;
+
+  filters: {
+    "ArbitrageExecuted(address,address,uint256,uint256,uint256)": TypedContractEvent<
+      ArbitrageExecutedEvent.InputTuple,
+      ArbitrageExecutedEvent.OutputTuple,
+      ArbitrageExecutedEvent.OutputObject
+    >;
+    ArbitrageExecuted: TypedContractEvent<
+      ArbitrageExecutedEvent.InputTuple,
+      ArbitrageExecutedEvent.OutputTuple,
+      ArbitrageExecutedEvent.OutputObject
+    >;
+
+    "OwnershipTransferred(address,address)": TypedContractEvent<
+      OwnershipTransferredEvent.InputTuple,
+      OwnershipTransferredEvent.OutputTuple,
+      OwnershipTransferredEvent.OutputObject
+    >;
+    OwnershipTransferred: TypedContractEvent<
+      OwnershipTransferredEvent.InputTuple,
+      OwnershipTransferredEvent.OutputTuple,
+      OwnershipTransferredEvent.OutputObject
+    >;
+  };
 }
